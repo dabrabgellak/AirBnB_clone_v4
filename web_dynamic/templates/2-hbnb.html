@@ -8,6 +8,7 @@
     <script src="{{ url_for('static', filename='scripts/2-hbnb.js') ~ "?" ~ cache_id }}"></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.png') ~ "?" ~ cache_id }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') ~ "?" ~ cache_id }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') ~ "?" ~ cache_id }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') ~ "?" ~ cache_id }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') ~ "?" ~ cache_id }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/font-awesome.css') ~ "?" ~ cache_id }}">
@@ -24,7 +25,8 @@
 	 ********************** -->
 
     <header>
-        <div id="api_status"></div>
+      <div class="logo"></div>
+      <div id="api_status"></div>
     </header>
     <main>
       <div class="container">
