@@ -1,9 +1,9 @@
-const lista = []
+const lista = [];
+const url = ('http://34.73.4.188:5001/api/v1/status/');
 
 function adds(str, add, remove, lista) {
   if (add != false) {
     lista.push(str);
-    console.log(lista)
   } else if (remove != false){
     for (let trav = 0; trav < str.length; trav++) {
       if (lista[trav] == str) {
@@ -11,6 +11,16 @@ function adds(str, add, remove, lista) {
       }
     }
   }
+}
+
+function statusApi() {
+ $.get(url, (req) => {
+   if (req.status == 'OK') {
+    $('#api_status').addClass('available');
+   } else {
+    $('#api_status').removeClass('available');
+   }
+ });
 }
 
 $(document).ready( function () {
@@ -21,18 +31,7 @@ $(document).ready( function () {
     } else if ($(this)[0].checked == false) {
       adds(name, false, true, lista);
     }
-    console.log(lista)
-  $('.amenities h4').text(lista.join(', '));
+    $('.amenities h4').text(lista.join(', '));
   })
+  statusApi();
 })
-
-const request = require('request');
-url = ('http://0.0.0.0:5001/api/v1/status/');
-
-request.get(url, function (err, response, body) {
-  if (response.statusCode == 200) {
-      $('#api_status').addClass('available');
-  } else {
-    $('#api_status').removeClass('available');
-  }
-});
